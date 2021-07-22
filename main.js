@@ -77,12 +77,11 @@ function handleClickEvent(e) {
         console.log(result); 
 
     // 6. Write code to display the message shown in the screenshot. 
-        let ansPlace = document.createElement("h2", {id : answer-placeholder});
+        let h2 = document.createElement("h2");
         let ansContent = document.createTextNode(`If you were on ${planetName}, you would weigh ${result}lbs!`);
+        console.dir(h2);
 
-        ansPlace.appendChild(ansContent);
-        var btn = document.getElementsByTagName('button');
-        document.body.insertBefore(ansPlace, btn);
+        document.body.appendChild(h2.appendChild(ansContent));
 } 
 
     // 7. Set the #calculate-button element's onclick method to use the handleClickEvent function.
