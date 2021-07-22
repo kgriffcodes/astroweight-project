@@ -26,6 +26,7 @@ var planets = [
     // `.forEach` `document.createElement` `document.getElementById` `.appendChild` 
 document.body.onload = populatePlanets;
 
+
 function populatePlanets(){
     //loop through every planet
     planets.forEach(planet => {
@@ -45,53 +46,46 @@ function populatePlanets(){
 }
 
 
-
-
-// function calculateWeight(weight, planetName) {
-//     let spaceWeight;     
-//     for(let i=0; i<planets.length; i++){
-//         if ((planets[i].includes(planetName)){
-//             let gravity = planets[i][1];
-//             let planetWeight = gravity * weight;
-//             return planetWeight; 
-//             }
-//         } else {
-//             console.log('no');
-//         }    
-//     }
-// }
-
 function calculateWeight(weight, planetName){
     let spaceWeight;
     let index;
 
     for(let i=0; i<planets.length; i++){
-        index = planets[i].indexOf(planetName);
+        let planetInfo = planets[i];
+        if (planetInfo.includes(planetName)){
+            index = i;
+        } else continue;
     }
 
-    gravity = planets[index][1];
+    let gravity = planets[index][1];
     spaceWeight = gravity * weight;
-    console.log(spaceWeight);
+    return spaceWeight;
 }
-
-
-
-
 
 
 function handleClickEvent(e) {
      // 3. Create a variable called userWeight and assign the value of the user's weight. 
-    let userWeight = document.getElementById(user-weight).value
-     // 4. Create a variable called planetName and assign the name of the selected planet from the drop down. 
-    let index =  selectElem.selectedIndex;
-    planetName = document.getElement;
-    // 5. Create a variable called result and assign the value of the new calculated weight. 
-    let result; 
-    // 6. Write code to display the message shown in the screenshot. 
+        let userWeight = document.getElementById('user-weight').value;
 
+     // 4. Create a variable called planetName and assign the name of the selected planet from the drop down.
+        let options = document.getElementById('planets');
+        let selIndex = options.selectedIndex; 
+        let planetName = options[selIndex].value;
+
+    // 5. Create a variable called result and assign the value of the new calculated weight. 
+        let result = calculateWeight(userWeight, planetName);
+        console.log(result); 
+
+    // 6. Write code to display the message shown in the screenshot. 
+        let ansPlace = document.createElement("h2", {id : answer-placeholder});
+        let ansContent = document.createTextNode(`If you were on ${planetName}, you would weigh ${result}!`);
+        document.body.innerHTML += ansPlace.appendChild(ansContent);
 } 
 
     // 7. Set the #calculate-button element's onclick method to use the handleClickEvent function.
+        
+    document.getElementById('calculate-button').addEventListener('click', handleClickEvent);
+
 
     // 8. Make it look nice by attaching  a style.css file to your index.html and writing some basic styling, 
     // feel free to add classes and id's to the HTML elements as you need, 
