@@ -12,6 +12,7 @@ var planets = [
     ['Mercury', 0.377], 
     ['Sun', 27.9] 
 ];
+
  
     // We are going to solve this by breaking the problem into three parts. 
     // Programmers like automating things, we'll populate the HTML drop down options using code, 
@@ -43,19 +44,40 @@ function populatePlanets(){
     });
 }
 
-function calculateWeight(weight, planetName) { 
-    // 2. Write the code to return the correct weight
-    for (let i=0; i<planets.length; i++){
-        let spaceWeight; 
-        let correctGravity = planets[i].includes(planetName);
-        if (correctGravity == false){
-           break; 
-        } else {
-        spaceWeight = Number(planets[i][1]) * Number(weight);
-        }
-        console.log(spaceWeight);
+
+
+
+// function calculateWeight(weight, planetName) {
+//     let spaceWeight;     
+//     for(let i=0; i<planets.length; i++){
+//         if ((planets[i].includes(planetName)){
+//             let gravity = planets[i][1];
+//             let planetWeight = gravity * weight;
+//             return planetWeight; 
+//             }
+//         } else {
+//             console.log('no');
+//         }    
+//     }
+// }
+
+function calculateWeight(weight, planetName){
+    let spaceWeight;
+    let index;
+
+    for(let i=0; i<planets.length; i++){
+        index = planets[i].indexOf(planetName);
     }
-} 
+
+    gravity = planets[index][1];
+    spaceWeight = gravity * weight;
+    console.log(spaceWeight);
+}
+
+
+
+
+
 
 function handleClickEvent(e) {
      // 3. Create a variable called userWeight and assign the value of the user's weight. 
