@@ -74,12 +74,10 @@ function handleClickEvent(e) {
 
     // 5. Create a variable called result and assign the value of the new calculated weight. 
         let result = calculateWeight(userWeight, planetName);
-        console.log(result); 
 
     // 6. Write code to display the message shown in the screenshot. 
         let h2 = document.createElement("h2");
         let ansContent = document.createTextNode(`If you were on ${planetName}, you would weigh ${result}lbs!`);
-        console.dir(h2);
 
         document.body.appendChild(h2.appendChild(ansContent));
 } 
